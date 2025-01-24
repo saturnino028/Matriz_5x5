@@ -40,6 +40,17 @@ int main()
             case '3':
                 break;
             case '4':
+                while(1){
+                desenha_fig(pong1, 100, pio, sm);
+                sleep_ms(1000);
+                desenha_fig(pong2, 100, pio, sm);
+                sleep_ms(1000);
+                desenha_fig(pong3, 100, pio, sm);
+                sleep_ms(1000);
+                desenha_fig(pong4, 100, pio, sm);
+                sleep_ms(1000);
+                desenha_fig(pong5, 100, pio, sm);
+            }
                 break;
             case '5':
                 break;

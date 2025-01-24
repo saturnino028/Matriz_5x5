@@ -4,13 +4,12 @@
 int main()
 {
     // Iniciando variaveis e sistema
-    PIO pio = pio0;
-    bool clock_setado;
-    clock_setado = set_sys_clock_khz(133000, false);
-    stdio_init_all();
-    ini_pins_teclado();
+    PIO pio = pio0; //Cria uma variável que armazena o bloco PIO usado
+    bool clock_setado; //Armazena estado do clock
+    clock_setado = set_sys_clock_khz(133000, false); //Seta o clock do sitema
+    stdio_init_all(); //Inicia a library stdio (UART)
+    ini_pins_teclado(); //Inicia os pinos do teclado
 
-    printf("Iniciando a transmissão PIO\n");
     if(clock_setado) 
         printf("Clock  setado %ld\n", clock_get_hz(clk_sys));
 
@@ -18,7 +17,7 @@ int main()
     int sm = pio_claim_unused_sm(pio, true);
     Matriz_5x5_program_init(pio, sm, offset, matriz_pin);
 
-    desenha_fig(new_piskel_data, 100, pio, sm);
+    desenha_fig(imagem_teste, 100, pio, sm);
 
     while(true){
         //Fazer leitura do teclado
@@ -129,6 +128,8 @@ char ler_teclado(){
  * @brief Desenha figura (aceita um padrão hexa, vindo direto do https://www.piskelapp.com/)
  * @param _matriz aceita uma matriz 1x25 com o padrão dos leds
  * @param _intensidade aceita um inteiro de 0 a 100 refente a intensidade do led
+ * @param pio é o periferico pio que vai ser utilizado
+ * @param sm é a máquina de estados dentro do pio escolhido que será usada (4 possibilidades)
  * 
     //Mapa leds
 

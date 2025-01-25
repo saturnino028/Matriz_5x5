@@ -11,7 +11,7 @@ int main()
     ini_pins_teclado(); //Inicia os pinos do teclado
 
     if(clock_setado) 
-        printf("Clock  setado %ld\n", clock_get_hz(clk_sys));
+        printf("Clock  setado %ld\n", clock_get_hz(clk_sys)); //Printa a velocidade do CLOCK
 
     int offset = pio_add_program(pio, &Matriz_5x5_program);
     int sm = pio_claim_unused_sm(pio, true);
@@ -56,17 +56,18 @@ int main()
                 desenha_fig(matriz_apagada, 100, pio, sm);
                 break;
             case '4':
-                while(1){
-                desenha_fig(pong1, 100, pio, sm);
-                sleep_ms(1000);
-                desenha_fig(pong2, 100, pio, sm);
-                sleep_ms(1000);
-                desenha_fig(pong3, 100, pio, sm);
-                sleep_ms(1000);
-                desenha_fig(pong4, 100, pio, sm);
-                sleep_ms(1000);
-                desenha_fig(pong5, 100, pio, sm);
-            }
+                while(1)
+                {
+                    desenha_fig(pong1, 100, pio, sm);
+                    sleep_ms(1000);
+                    desenha_fig(pong2, 100, pio, sm);
+                    sleep_ms(1000);
+                    desenha_fig(pong3, 100, pio, sm);
+                    sleep_ms(1000);
+                    desenha_fig(pong4, 100, pio, sm);
+                    sleep_ms(1000);
+                    desenha_fig(pong5, 100, pio, sm);
+                }
                 break;
             case '5':
                 break;

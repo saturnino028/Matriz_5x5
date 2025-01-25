@@ -17,8 +17,6 @@ int main()
     int sm = pio_claim_unused_sm(pio, true);
     Matriz_5x5_program_init(pio, sm, offset, matriz_pin);
 
-    desenha_fig(imagem_teste, 100, pio, sm);
-
     while(true){
         //Fazer leitura do teclado
         char tecla = ler_teclado();
@@ -96,6 +94,7 @@ int main()
             default:
                 break;
         }
+        desenha_fig(open, 100, pio, sm);
         sleep_ms(100);
     }
 

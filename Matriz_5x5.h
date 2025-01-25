@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/pio.h"
-#include "pio_wave.pio.h"
 #include "hardware/clocks.h"
+#include "pio_wave.pio.h"
+
 
 //número de LEDs
 #define NUM_PIXELS 25

@@ -34,6 +34,49 @@ int main()
         switch (tecla)
         {
             case '1':
+                desenha_fig(tecla1_f1, 100, pio, sm);
+                sleep_ms(500); 
+                desenha_fig(tecla1_f2, 100, pio, sm);
+                sleep_ms(500); 
+                desenha_fig(tecla1_f3, 100, pio, sm);
+                sleep_ms(500); 
+                desenha_fig(tecla1_f4, 100, pio, sm);
+                sleep_ms(500); 
+                desenha_fig(tecla1_f5, 100, pio, sm);
+                sleep_ms(500); 
+                desenha_fig(tecla1_f6, 100, pio, sm);
+                sleep_ms(500); 
+                desenha_fig(tecla1_f7, 100, pio, sm);
+                sleep_ms(500); 
+                desenha_fig(tecla1_f8, 100, pio, sm);
+                sleep_ms(500); 
+                desenha_fig(tecla1_f9, 100, pio, sm);
+                sleep_ms(500); 
+                desenha_fig(tecla1_f10, 100, pio, sm);
+                sleep_ms(500); 
+                desenha_fig(tecla1_f11, 100, pio, sm);
+                sleep_ms(500); 
+                desenha_fig(tecla1_f12, 100, pio, sm);
+                sleep_ms(500); 
+                desenha_fig(tecla1_f13, 100, pio, sm);
+                sleep_ms(500); 
+                desenha_fig(tecla1_f14, 100, pio, sm);
+                sleep_ms(500); 
+                desenha_fig(tecla1_f15, 100, pio, sm);
+                sleep_ms(500); 
+                desenha_fig(tecla1_f16, 100, pio, sm);
+                sleep_ms(500); 
+                desenha_fig(tecla1_f17, 100, pio, sm);
+                sleep_ms(500); 
+                desenha_fig(tecla1_f18, 100, pio, sm);
+                sleep_ms(500); 
+                desenha_fig(tecla1_f19, 100, pio, sm);
+                sleep_ms(500); 
+                desenha_fig(tecla1_f20, 100, pio, sm);
+                sleep_ms(500); 
+                desenha_fig(tecla1_f21, 100, pio, sm);
+                sleep_ms(500); 
+                desenha_fig(tecla1_f22, 100, pio, sm);
                 break;
             case '2':
                 break;

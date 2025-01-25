@@ -38,6 +38,22 @@ int main()
             case '2':
                 break;
             case '3':
+                for (uint8_t i = 0; i < 5; i++)
+                {
+                    desenha_fig(colisao1, 100, pio, sm);
+                    sleep_ms(250);
+                    desenha_fig(colisao2, 100, pio, sm);
+                    sleep_ms(250);
+                    desenha_fig(colisao3, 100, pio, sm);
+                    sleep_ms(500);
+                    desenha_fig(colisao4, 100, pio, sm);
+                    sleep_ms(1000);
+                    desenha_fig(colisao5, 100, pio, sm);
+                    sleep_ms(1000);
+                    desenha_fig(colisao6, 100, pio, sm);
+                }
+
+                desenha_fig(matriz_apagada, 100, pio, sm);
                 break;
             case '4':
                 while(1){

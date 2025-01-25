@@ -17,8 +17,6 @@ int main()
     int sm = pio_claim_unused_sm(pio, true);
     Matriz_5x5_program_init(pio, sm, offset, matriz_pin);
 
-    desenha_fig(open, 100, pio, sm); //Imagem de abertura
-
     while(true)
     {
         char tecla = ler_teclado(); //Fazer leitura do teclado Matricial
@@ -105,9 +103,6 @@ int main()
                     sleep_ms(1000);
                     desenha_fig(colisao6, 100, pio, sm);
                 }
-                
-                sleep_ms(1000);
-                desenha_fig(open, 100, pio, sm);
                 break;
             case '4':
                 for (uint8_t i = 0; i < 5; i++)
@@ -122,9 +117,6 @@ int main()
                     sleep_ms(500);
                     desenha_fig(pong5, 100, pio, sm);
                 }
-                
-                sleep_ms(1000);
-                desenha_fig(open, 100, pio, sm);
                 break;
             case '5':
                 break;
@@ -151,6 +143,7 @@ int main()
             case '#':
                 break;
             default:
+                desenha_fig(open, 100, pio, sm);
                 break;
         }
         sleep_ms(100);

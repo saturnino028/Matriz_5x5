@@ -165,6 +165,9 @@ int main()
             case 'C':
                 break;
             case 'D':
+                desenha_fig(white, 50, pio, sm);
+                sleep_ms(1000);
+                desenha_fig(open, 100, pio, sm);
                 break;
             case '*':
                 break;

@@ -17,9 +17,11 @@ int main()
     int sm = pio_claim_unused_sm(pio, true);
     Matriz_5x5_program_init(pio, sm, offset, matriz_pin);
 
-    while(true){
-        //Fazer leitura do teclado
-        char tecla = ler_teclado();
+    desenha_fig(open, 100, pio, sm); //Imagem de abertura
+
+    while(true)
+    {
+        char tecla = ler_teclado(); //Fazer leitura do teclado Matricial
 
         //Printar a tecla pressionada
         if(tecla != '\0')
@@ -27,7 +29,17 @@ int main()
             printf("Tecla: %c\n", tecla);
             sleep_ms(100);
         }
-
+        else
+        {
+            int c = getchar_timeout_us(1000); //Fazer leitura da serial
+            if((c != PICO_ERROR_TIMEOUT) && (c != 10))
+            {
+                tecla = (char)c;
+                printf("Tecla: %c\n", tecla); // Converte para char e imprime no terminal
+                sleep_ms(100);
+            }
+        }
+        
         //Verificar a ação a ser adotada
         switch (tecla)
         {
@@ -50,22 +62,26 @@ int main()
                     sleep_ms(1000);
                     desenha_fig(colisao6, 100, pio, sm);
                 }
-
-                desenha_fig(matriz_apagada, 100, pio, sm);
+                
+                sleep_ms(1000);
+                desenha_fig(open, 100, pio, sm);
                 break;
             case '4':
-                while(1)
+                for (uint8_t i = 0; i < 5; i++)
                 {
                     desenha_fig(pong1, 100, pio, sm);
-                    sleep_ms(1000);
+                    sleep_ms(500);
                     desenha_fig(pong2, 100, pio, sm);
-                    sleep_ms(1000);
+                    sleep_ms(500);
                     desenha_fig(pong3, 100, pio, sm);
-                    sleep_ms(1000);
+                    sleep_ms(500);
                     desenha_fig(pong4, 100, pio, sm);
-                    sleep_ms(1000);
+                    sleep_ms(500);
                     desenha_fig(pong5, 100, pio, sm);
                 }
+                
+                sleep_ms(1000);
+                desenha_fig(open, 100, pio, sm);
                 break;
             case '5':
                 break;
@@ -94,10 +110,8 @@ int main()
             default:
                 break;
         }
-        desenha_fig(open, 100, pio, sm);
         sleep_ms(100);
     }
-
 }
 
 

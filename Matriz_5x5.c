@@ -161,6 +161,7 @@ int main()
             case 'A':
                 break;
             case 'B':
+                desenha_fig(matriz_azul, 100, pio, sm);
                 break;
             case 'C':
                 break;

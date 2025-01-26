@@ -151,6 +151,25 @@ int main()
                 desenha_fig(open, 100, pio, sm);
                 break;
             case '5':
+                     for (uint8_t i = 0; i < 5; i++)
+                {
+                    // animação de ondas
+                    desenha_fig(onda1, 100, pio, sm);
+                    sleep_ms(500);
+                    desenha_fig(onda2, 100, pio, sm);
+                    sleep_ms(500);
+                    desenha_fig(onda3, 100, pio, sm);
+                    sleep_ms(500);
+                    desenha_fig(onda4, 100, pio, sm);
+                    sleep_ms(500);
+                    desenha_fig(onda5, 100, pio, sm);
+                    sleep_ms(500);
+                }
+    
+                sleep_ms(1000);                  
+                desenha_fig(open, 100, pio, sm); 
+            
+                
                 break;
             case '6':
                 break;

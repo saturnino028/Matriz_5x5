@@ -1,5 +1,6 @@
 #include "Matriz_5x5.h"
 #include "figuras.h"
+#include "pico/bootrom.h" 
 
 #define BUZZER_PIN 21
 
@@ -182,6 +183,7 @@ int main()
                 desenha_fig(white, 50, pio, sm);
                 break;
             case '*':
+                entrar_modo_gravacao();
                 break;
             case '#':
                 desenha_fig(white, 20, pio, sm);
@@ -345,4 +347,10 @@ void buzzer_tocar(int frequencia, int duracao_ms)
         gpio_put(BUZZER_PIN, 0); // Desliga o buzzer
         sleep_us(periodo_us / 2); // Metade do período
     }
+}
+
+void entrar_modo_gravacao() {
+    printf("Entrando no modo de gravação...\n");
+    // Se quiser reiniciar no modo de gravação USB:
+    reset_usb_boot(0, 0); 
 }

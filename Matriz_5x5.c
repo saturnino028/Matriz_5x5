@@ -1,5 +1,8 @@
 #include "Matriz_5x5.h"
 #include "figuras.h"
+#include "pico/bootrom.h" 
+
+#define BUZZER_PIN 21
 
 int main()
 {
@@ -9,6 +12,7 @@ int main()
     clock_setado = set_sys_clock_khz(133000, false); //Seta o clock do sitema
     stdio_init_all(); //Inicia a library stdio (UART)
     ini_pins_teclado(); //Inicia os pinos do teclado
+    iniciar_buzzer();  // Inicializa o pino do buzzer
 
     if(clock_setado) 
         printf("Clock  setado %ld\n", clock_get_hz(clk_sys)); //Printa a velocidade do CLOCK
@@ -43,47 +47,51 @@ int main()
         {
             case '1':
                 desenha_fig(tecla1_f1, 100, pio, sm);
-                sleep_ms(500); 
+                sleep_ms(500);
                 desenha_fig(tecla1_f2, 100, pio, sm);
-                sleep_ms(500); 
+                sleep_ms(500);
                 desenha_fig(tecla1_f3, 100, pio, sm);
-                sleep_ms(500); 
+                sleep_ms(500);
                 desenha_fig(tecla1_f4, 100, pio, sm);
-                sleep_ms(500); 
+                buzzer_tocar(800, 50); // Toca sincronizado ao frame 4
+                sleep_ms(500);
                 desenha_fig(tecla1_f5, 100, pio, sm);
-                sleep_ms(500); 
+                sleep_ms(500);
                 desenha_fig(tecla1_f6, 100, pio, sm);
-                sleep_ms(500); 
+                buzzer_tocar(800, 50); // Toca sincronizado ao frame 6
+                sleep_ms(500);
                 desenha_fig(tecla1_f7, 100, pio, sm);
-                sleep_ms(500); 
+                sleep_ms(500);
                 desenha_fig(tecla1_f8, 100, pio, sm);
-                sleep_ms(500); 
+                sleep_ms(500);
                 desenha_fig(tecla1_f9, 100, pio, sm);
-                sleep_ms(500); 
+                sleep_ms(500);
                 desenha_fig(tecla1_f10, 100, pio, sm);
-                sleep_ms(500); 
+                sleep_ms(500);
                 desenha_fig(tecla1_f11, 100, pio, sm);
-                sleep_ms(500); 
+                sleep_ms(500);
                 desenha_fig(tecla1_f12, 100, pio, sm);
-                sleep_ms(500); 
+                sleep_ms(500);
                 desenha_fig(tecla1_f13, 100, pio, sm);
-                sleep_ms(500); 
+                sleep_ms(500);
                 desenha_fig(tecla1_f14, 100, pio, sm);
-                sleep_ms(500); 
+                sleep_ms(500);
                 desenha_fig(tecla1_f15, 100, pio, sm);
-                sleep_ms(500); 
+                sleep_ms(500);
                 desenha_fig(tecla1_f16, 100, pio, sm);
-                sleep_ms(500); 
+                buzzer_tocar(800, 50); // Toca sincronizado ao frame 16
+                sleep_ms(500);
                 desenha_fig(tecla1_f17, 100, pio, sm);
-                sleep_ms(500); 
+                sleep_ms(500);
                 desenha_fig(tecla1_f18, 100, pio, sm);
-                sleep_ms(500); 
+                sleep_ms(500);
                 desenha_fig(tecla1_f19, 100, pio, sm);
-                sleep_ms(500); 
+                sleep_ms(500);
                 desenha_fig(tecla1_f20, 100, pio, sm);
-                sleep_ms(500); 
+                sleep_ms(500);
                 desenha_fig(tecla1_f21, 100, pio, sm);
-                sleep_ms(500); 
+                buzzer_tocar(800, 50); // Toca sincronizado ao frame 21
+                sleep_ms(500);
                 desenha_fig(tecla1_f22, 100, pio, sm);
 
                 sleep_ms(1000);
@@ -192,6 +200,7 @@ int main()
                 desenha_fig(white, 50, pio, sm);
                 break;
             case '*':
+                entrar_modo_gravacao();
                 break;
             case '#':
                 desenha_fig(white, 20, pio, sm);
@@ -201,6 +210,12 @@ int main()
         }
         sleep_ms(100);
     }
+}
+
+void iniciar_buzzer()
+{
+    gpio_init(BUZZER_PIN);          // Inicializa o pino
+    gpio_set_dir(BUZZER_PIN, GPIO_OUT); // Configura o pino como saída
 }
 
 
@@ -335,4 +350,24 @@ void desenha_fig(uint32_t *_matriz, uint8_t _intensidade, PIO pio, uint sm){
         pixel = (g << 16) | (r << 8) | b;
         pio_sm_put_blocking(pio, sm, pixel<<8u);
     }
+}
+
+// Função para tocar o buzzer
+void buzzer_tocar(int frequencia, int duracao_ms)
+{
+    int periodo_us = 1000000 / frequencia; // Período em microsegundos
+    int ciclos = (duracao_ms * 1000) / periodo_us; // Número de ciclos
+
+    for (int i = 0; i < ciclos; i++) {
+        gpio_put(BUZZER_PIN, 1); // Liga o buzzer
+        sleep_us(periodo_us / 2); // Metade do período
+        gpio_put(BUZZER_PIN, 0); // Desliga o buzzer
+        sleep_us(periodo_us / 2); // Metade do período
+    }
+}
+
+void entrar_modo_gravacao() {
+    printf("Entrando no modo de gravação...\n");
+    // Se quiser reiniciar no modo de gravação USB:
+    reset_usb_boot(0, 0); 
 }

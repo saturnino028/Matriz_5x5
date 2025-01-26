@@ -87,6 +87,26 @@ int main()
                 desenha_fig(tecla1_f22, 100, pio, sm);
                 break;
             case '2':
+                desenha_fig(x_f1, 100, pio, sm);
+                sleep_ms(500);
+                desenha_fig(x_f2, 100, pio, sm);
+                sleep_ms(500);
+                desenha_fig(x_f3, 100, pio, sm);
+                sleep_ms(500);
+                desenha_fig(x_f4, 100, pio, sm);
+                sleep_ms(500);
+                desenha_fig(x_f5, 100, pio, sm);
+                sleep_ms(500);
+                desenha_fig(x_f6, 100, pio, sm);
+                sleep_ms(500);
+                desenha_fig(x_f7, 100, pio, sm);
+                sleep_ms(500);
+                desenha_fig(x_f8, 100, pio, sm);
+                sleep_ms(500);
+                desenha_fig(x_f9, 100, pio, sm);
+                sleep_ms(500);
+                desenha_fig(x_f10, 100, pio, sm);
+                sleep_ms(500);
                 break;
             case '3':
                 for (uint8_t i = 0; i < 5; i++)
@@ -133,10 +153,14 @@ int main()
             case 'A':
                 break;
             case 'B':
+                desenha_fig(matriz_azul, 100, pio, sm);
                 break;
             case 'C':
                 break;
             case 'D':
+                desenha_fig(white, 50, pio, sm);
+                sleep_ms(1000);
+                desenha_fig(open, 100, pio, sm);
                 break;
             case '*':
                 break;

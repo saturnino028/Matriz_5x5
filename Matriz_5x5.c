@@ -169,6 +169,7 @@ int main()
                 desenha_fig(matriz_azul, 100, pio, sm);
                 break;
             case 'C':
+                desenha_fig(red, 80, pio, sm);
                 break;
             case 'D':
                 desenha_fig(white, 50, pio, sm);
@@ -176,6 +177,7 @@ int main()
             case '*':
                 break;
             case '#':
+                desenha_fig(white, 20, pio, sm);
                 break;
             default:
                 break;

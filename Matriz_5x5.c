@@ -85,6 +85,9 @@ int main()
                 desenha_fig(tecla1_f21, 100, pio, sm);
                 sleep_ms(500); 
                 desenha_fig(tecla1_f22, 100, pio, sm);
+
+                sleep_ms(1000);
+                desenha_fig(open, 100, pio, sm);
                 break;
             case '2':
                 desenha_fig(x_f1, 100, pio, sm);
@@ -107,6 +110,9 @@ int main()
                 sleep_ms(500);
                 desenha_fig(x_f10, 100, pio, sm);
                 sleep_ms(500);
+
+                sleep_ms(1000);
+                desenha_fig(open, 100, pio, sm);
                 break;
             case '3':
                 for (uint8_t i = 0; i < 5; i++)
@@ -123,6 +129,9 @@ int main()
                     sleep_ms(1000);
                     desenha_fig(colisao6, 100, pio, sm);
                 }
+
+                sleep_ms(1000);
+                desenha_fig(open, 100, pio, sm);
                 break;
             case '4':
                 for (uint8_t i = 0; i < 5; i++)
@@ -137,6 +146,9 @@ int main()
                     sleep_ms(500);
                     desenha_fig(pong5, 100, pio, sm);
                 }
+
+                sleep_ms(1000);
+                desenha_fig(open, 100, pio, sm);
                 break;
             case '5':
                 break;
@@ -151,6 +163,7 @@ int main()
             case '0':
                 break;
             case 'A':
+                desenha_fig(matriz_apagada, 0, pio, sm);
                 break;
             case 'B':
                 desenha_fig(matriz_azul, 100, pio, sm);
@@ -159,15 +172,12 @@ int main()
                 break;
             case 'D':
                 desenha_fig(white, 50, pio, sm);
-                sleep_ms(1000);
-                desenha_fig(open, 100, pio, sm);
                 break;
             case '*':
                 break;
             case '#':
                 break;
             default:
-                desenha_fig(open, 100, pio, sm);
                 break;
         }
         sleep_ms(100);

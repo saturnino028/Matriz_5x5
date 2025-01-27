@@ -37,11 +37,11 @@ void buzzer_tocar(int frequencia, int duracao_ms);
 
 void entrar_modo_gravacao();
 
-void tecla_1(PIO pio, int sm);
-void tecla_2(PIO pio, int sm);
-void tecla_3(PIO pio, int sm);
-void tecla_4(PIO pio, int sm);
-void tecla_5(PIO pio, int sm);
+void figura_1(PIO pio, int sm);
+void figura_2(PIO pio, int sm);
+void figura_3(PIO pio, int sm);
+void figura_4(PIO pio, int sm);
+void figura_5(PIO pio, int sm);
 
 
 //Funções Matriz de Led

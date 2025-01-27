@@ -46,31 +46,31 @@ int main()
         switch (tecla)
         {
             case '1':
-                tecla_1(pio, sm);
+                figura_1(pio, sm);
 
                 sleep_ms(1000);
                 desenha_fig(open, 100, pio, sm);
                 break;
             case '2':
-                tecla_2(pio, sm);
+                figura_2(pio, sm);
 
                 sleep_ms(1000);
                 desenha_fig(open, 100, pio, sm);
                 break;
             case '3':
-                tecla_3(pio, sm);
+                figura_3(pio, sm);
 
                 sleep_ms(1000);
                 desenha_fig(open, 100, pio, sm);
                 break;
             case '4':
-                tecla_4(pio, sm);
+                figura_4(pio, sm);
 
                 sleep_ms(1000);
                 desenha_fig(open, 100, pio, sm);
                 break;
             case '5':
-                tecla_5(pio, sm);
+                figura_5(pio, sm);
 
                 sleep_ms(1000);                  
                 desenha_fig(open, 100, pio, sm);
@@ -270,7 +270,7 @@ void entrar_modo_gravacao() {
     reset_usb_boot(0, 0); 
 }
 
-void tecla_1(PIO pio, int sm)
+void figura_1(PIO pio, int sm)
 { 
     desenha_fig(tecla1_f1, 100, pio, sm);
     sleep_ms(500);
@@ -322,7 +322,7 @@ void tecla_1(PIO pio, int sm)
     return;
 }
 
-void tecla_2(PIO pio, int sm)
+void figura_2(PIO pio, int sm)
 {
     desenha_fig(x_f1, 100, pio, sm);
     sleep_ms(500);
@@ -347,7 +347,7 @@ void tecla_2(PIO pio, int sm)
     return;
 }
 
-void tecla_3(PIO pio, int sm)
+void figura_3(PIO pio, int sm)
 {
     for (uint8_t i = 0; i < 5; i++)
     {
@@ -366,7 +366,7 @@ void tecla_3(PIO pio, int sm)
     return;
 }
 
-void tecla_4(PIO pio, int sm)
+void figura_4(PIO pio, int sm)
 {
     for (uint8_t i = 0; i < 5; i++)
     {
@@ -383,7 +383,7 @@ void tecla_4(PIO pio, int sm)
     return;
 }
 
-void tecla_5(PIO pio, int sm)
+void figura_5(PIO pio, int sm)
 {
     for (uint8_t i = 0; i < 5; i++)
     {

@@ -1,3 +1,6 @@
+#ifndef MATRIZ_5X5_H
+#define MATRIZ_5X5_H
+
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/pio.h"
@@ -10,6 +13,9 @@
 
 //Pino de Dados para a Matriz
 #define matriz_pin 7
+
+//Pino Buzzer
+#define BUZZER_PIN 21
 
 //definição dos pinos do teclado matricial
 #define lins 4
@@ -25,6 +31,18 @@ extern int sm;
 //prototipo de funções do teclado
 void ini_pins_teclado();
 char ler_teclado();
+
+void iniciar_buzzer();
+void buzzer_tocar(int frequencia, int duracao_ms);
+
+void entrar_modo_gravacao();
+
+void tecla_1(PIO pio, int sm);
+void tecla_2(PIO pio, int sm);
+void tecla_3(PIO pio, int sm);
+void tecla_4(PIO pio, int sm);
+void tecla_5(PIO pio, int sm);
+
 
 //Funções Matriz de Led
 /**
@@ -46,3 +64,4 @@ uint32_t matrix_rgb(double b, double r, double g);
 void desenho_pio(double *desenho, uint32_t valor_led, PIO pio, uint sm, double r, double g, double b);
 void desenha_fig(uint32_t *_matriz, uint8_t _intensidade, PIO pio, uint sm);
 
+#endif // MATRIZ_5X5_H

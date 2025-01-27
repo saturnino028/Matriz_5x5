@@ -2,8 +2,6 @@
 #include "figuras.h"
 #include "pico/bootrom.h" 
 
-#define BUZZER_PIN 21
-
 int main()
 {
     // Iniciando variaveis e sistema
@@ -20,6 +18,8 @@ int main()
     int offset = pio_add_program(pio, &Matriz_5x5_program);
     int sm = pio_claim_unused_sm(pio, true);
     Matriz_5x5_program_init(pio, sm, offset, matriz_pin);
+
+    desenha_fig(open, 100, pio, sm);
 
     while(true)
     {
@@ -46,134 +46,32 @@ int main()
         switch (tecla)
         {
             case '1':
-                desenha_fig(tecla1_f1, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(tecla1_f2, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(tecla1_f3, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(tecla1_f4, 100, pio, sm);
-                buzzer_tocar(800, 50); // Toca sincronizado ao frame 4
-                sleep_ms(500);
-                desenha_fig(tecla1_f5, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(tecla1_f6, 100, pio, sm);
-                buzzer_tocar(800, 50); // Toca sincronizado ao frame 6
-                sleep_ms(500);
-                desenha_fig(tecla1_f7, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(tecla1_f8, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(tecla1_f9, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(tecla1_f10, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(tecla1_f11, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(tecla1_f12, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(tecla1_f13, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(tecla1_f14, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(tecla1_f15, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(tecla1_f16, 100, pio, sm);
-                buzzer_tocar(800, 50); // Toca sincronizado ao frame 16
-                sleep_ms(500);
-                desenha_fig(tecla1_f17, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(tecla1_f18, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(tecla1_f19, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(tecla1_f20, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(tecla1_f21, 100, pio, sm);
-                buzzer_tocar(800, 50); // Toca sincronizado ao frame 21
-                sleep_ms(500);
-                desenha_fig(tecla1_f22, 100, pio, sm);
+                tecla_1(pio, sm);
 
                 sleep_ms(1000);
                 desenha_fig(open, 100, pio, sm);
                 break;
             case '2':
-                desenha_fig(x_f1, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(x_f2, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(x_f3, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(x_f4, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(x_f5, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(x_f6, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(x_f7, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(x_f8, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(x_f9, 100, pio, sm);
-                sleep_ms(500);
-                desenha_fig(x_f10, 100, pio, sm);
-                sleep_ms(500);
+                tecla_2(pio, sm);
 
                 sleep_ms(1000);
                 desenha_fig(open, 100, pio, sm);
                 break;
             case '3':
-                for (uint8_t i = 0; i < 5; i++)
-                {
-                    desenha_fig(colisao1, 100, pio, sm);
-                    sleep_ms(250);
-                    desenha_fig(colisao2, 100, pio, sm);
-                    sleep_ms(250);
-                    desenha_fig(colisao3, 100, pio, sm);
-                    sleep_ms(500);
-                    desenha_fig(colisao4, 100, pio, sm);
-                    sleep_ms(1000);
-                    desenha_fig(colisao5, 100, pio, sm);
-                    sleep_ms(1000);
-                    desenha_fig(colisao6, 100, pio, sm);
-                }
+                tecla_3(pio, sm);
 
                 sleep_ms(1000);
                 desenha_fig(open, 100, pio, sm);
                 break;
             case '4':
-                for (uint8_t i = 0; i < 5; i++)
-                {
-                    desenha_fig(pong1, 100, pio, sm);
-                    sleep_ms(500);
-                    desenha_fig(pong2, 100, pio, sm);
-                    sleep_ms(500);
-                    desenha_fig(pong3, 100, pio, sm);
-                    sleep_ms(500);
-                    desenha_fig(pong4, 100, pio, sm);
-                    sleep_ms(500);
-                    desenha_fig(pong5, 100, pio, sm);
-                }
+                tecla_4(pio, sm);
 
                 sleep_ms(1000);
                 desenha_fig(open, 100, pio, sm);
                 break;
             case '5':
-                for (uint8_t i = 0; i < 5; i++)
-                {
-                    // animação de ondas
-                    desenha_fig(onda1, 100, pio, sm);
-                    sleep_ms(500);
-                    desenha_fig(onda2, 100, pio, sm);
-                    sleep_ms(500);
-                    desenha_fig(onda3, 100, pio, sm);
-                    sleep_ms(500);
-                    desenha_fig(onda4, 100, pio, sm);
-                    sleep_ms(500);
-                    desenha_fig(onda5, 100, pio, sm);
-                    sleep_ms(500);
-                }
-    
+                tecla_5(pio, sm);
+
                 sleep_ms(1000);                  
                 desenha_fig(open, 100, pio, sm);
                 break;
@@ -370,4 +268,136 @@ void entrar_modo_gravacao() {
     printf("Entrando no modo de gravação...\n");
     // Se quiser reiniciar no modo de gravação USB:
     reset_usb_boot(0, 0); 
+}
+
+void tecla_1(PIO pio, int sm)
+{ 
+    desenha_fig(tecla1_f1, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(tecla1_f2, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(tecla1_f3, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(tecla1_f4, 100, pio, sm);
+    buzzer_tocar(800, 50); // Toca sincronizado ao frame 4
+    sleep_ms(500);
+    desenha_fig(tecla1_f5, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(tecla1_f6, 100, pio, sm);
+    buzzer_tocar(800, 50); // Toca sincronizado ao frame 6
+    sleep_ms(500);
+    desenha_fig(tecla1_f7, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(tecla1_f8, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(tecla1_f9, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(tecla1_f10, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(tecla1_f11, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(tecla1_f12, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(tecla1_f13, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(tecla1_f14, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(tecla1_f15, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(tecla1_f16, 100, pio, sm);
+    buzzer_tocar(800, 50); // Toca sincronizado ao frame 16
+    sleep_ms(500);
+    desenha_fig(tecla1_f17, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(tecla1_f18, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(tecla1_f19, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(tecla1_f20, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(tecla1_f21, 100, pio, sm);
+    buzzer_tocar(800, 50); // Toca sincronizado ao frame 21
+    sleep_ms(500);
+    desenha_fig(tecla1_f22, 100, pio, sm);
+    return;
+}
+
+void tecla_2(PIO pio, int sm)
+{
+    desenha_fig(x_f1, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(x_f2, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(x_f3, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(x_f4, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(x_f5, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(x_f6, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(x_f7, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(x_f8, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(x_f9, 100, pio, sm);
+    sleep_ms(500);
+    desenha_fig(x_f10, 100, pio, sm);
+    sleep_ms(500);
+    return;
+}
+
+void tecla_3(PIO pio, int sm)
+{
+    for (uint8_t i = 0; i < 5; i++)
+    {
+        desenha_fig(colisao1, 100, pio, sm);
+        sleep_ms(250);
+        desenha_fig(colisao2, 100, pio, sm);
+        sleep_ms(250);
+        desenha_fig(colisao3, 100, pio, sm);
+        sleep_ms(500);
+        desenha_fig(colisao4, 100, pio, sm);
+        sleep_ms(1000);
+        desenha_fig(colisao5, 100, pio, sm);
+        sleep_ms(1000);
+        desenha_fig(colisao6, 100, pio, sm);
+    }
+    return;
+}
+
+void tecla_4(PIO pio, int sm)
+{
+    for (uint8_t i = 0; i < 5; i++)
+    {
+        desenha_fig(pong1, 100, pio, sm);
+        sleep_ms(500);
+        desenha_fig(pong2, 100, pio, sm);
+        sleep_ms(500);
+        desenha_fig(pong3, 100, pio, sm);
+        sleep_ms(500);
+        desenha_fig(pong4, 100, pio, sm);
+        sleep_ms(500);
+        desenha_fig(pong5, 100, pio, sm);
+    }
+    return;
+}
+
+void tecla_5(PIO pio, int sm)
+{
+    for (uint8_t i = 0; i < 5; i++)
+    {
+        // animação de ondas
+        desenha_fig(onda1, 100, pio, sm);
+        sleep_ms(500);
+        desenha_fig(onda2, 100, pio, sm);
+        sleep_ms(500);
+        desenha_fig(onda3, 100, pio, sm);
+        sleep_ms(500);
+        desenha_fig(onda4, 100, pio, sm);
+        sleep_ms(500);
+        desenha_fig(onda5, 100, pio, sm);
+        sleep_ms(500);
+    }
+    return;
 }

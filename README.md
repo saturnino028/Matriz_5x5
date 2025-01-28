@@ -50,4 +50,4 @@ O brilho dos LEDs é muito intenso, para evitar danos aos olhos recomendamos que
 ## Demonstração
 
 <!-- TODO: adicionar link do vídeo -->
-Vídeo demonstrando as funcionalidades da solução implementada: [Vídeo Demonstrativo](#).
+Vídeo demonstrando as funcionalidades da solução implementada: [Demonstração](https://youtu.be/1P6h4vWGjy0).

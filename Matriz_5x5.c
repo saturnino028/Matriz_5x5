@@ -1,6 +1,8 @@
 #include "Matriz_5x5.h"
 #include "figuras.h"
-#include "pico/bootrom.h" 
+#include "pico/bootrom.h"
+
+#define brilho_padrao 100 //Percentual de luminosidade dos LEDs
 
 int main()
 {
@@ -19,7 +21,7 @@ int main()
     int sm = pio_claim_unused_sm(pio, true);
     Matriz_5x5_program_init(pio, sm, offset, matriz_pin);
 
-    desenha_fig(open, 20, pio, sm);
+    desenha_fig(open, brilho_padrao, pio, sm);
 
     while(true)
     {
@@ -49,31 +51,31 @@ int main()
                 figura_1(pio, sm);
 
                 sleep_ms(1000);
-                desenha_fig(open, 20, pio, sm);
+                desenha_fig(open, brilho_padrao, pio, sm);
                 break;
             case '2':
                 figura_2(pio, sm);
 
                 sleep_ms(1000);
-                desenha_fig(open, 20, pio, sm);
+                desenha_fig(open, brilho_padrao, pio, sm);
                 break;
             case '3':
                 figura_3(pio, sm);
 
                 sleep_ms(1000);
-                desenha_fig(open, 20, pio, sm);
+                desenha_fig(open, brilho_padrao, pio, sm);
                 break;
             case '4':
                 figura_4(pio, sm);
 
                 sleep_ms(1000);
-                desenha_fig(open, 20, pio, sm);
+                desenha_fig(open, brilho_padrao, pio, sm);
                 break;
             case '5':
                 figura_5(pio, sm);
 
                 sleep_ms(1000);                  
-                desenha_fig(open, 20, pio, sm);
+                desenha_fig(open, brilho_padrao, pio, sm);
                 break;
             case '6':
                 break;
@@ -269,77 +271,77 @@ void entrar_modo_gravacao() {
 
 void figura_1(PIO pio, int sm)
 { 
-    desenha_fig(tecla1_f1, 100, pio, sm);
+    desenha_fig(tecla1_f1, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(tecla1_f2, 100, pio, sm);
+    desenha_fig(tecla1_f2, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(tecla1_f3, 100, pio, sm);
+    desenha_fig(tecla1_f3, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(tecla1_f4, 100, pio, sm);
+    desenha_fig(tecla1_f4, brilho_padrao, pio, sm);
     buzzer_tocar(800, 50); // Toca sincronizado ao frame 4
     sleep_ms(500);
-    desenha_fig(tecla1_f5, 100, pio, sm);
+    desenha_fig(tecla1_f5, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(tecla1_f6, 100, pio, sm);
+    desenha_fig(tecla1_f6, brilho_padrao, pio, sm);
     buzzer_tocar(800, 50); // Toca sincronizado ao frame 6
     sleep_ms(500);
-    desenha_fig(tecla1_f7, 100, pio, sm);
+    desenha_fig(tecla1_f7, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(tecla1_f8, 100, pio, sm);
+    desenha_fig(tecla1_f8, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(tecla1_f9, 100, pio, sm);
+    desenha_fig(tecla1_f9, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(tecla1_f10, 100, pio, sm);
+    desenha_fig(tecla1_f10, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(tecla1_f11, 100, pio, sm);
+    desenha_fig(tecla1_f11, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(tecla1_f12, 100, pio, sm);
+    desenha_fig(tecla1_f12, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(tecla1_f13, 100, pio, sm);
+    desenha_fig(tecla1_f13, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(tecla1_f14, 100, pio, sm);
+    desenha_fig(tecla1_f14, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(tecla1_f15, 100, pio, sm);
+    desenha_fig(tecla1_f15, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(tecla1_f16, 100, pio, sm);
+    desenha_fig(tecla1_f16, brilho_padrao, pio, sm);
     buzzer_tocar(800, 50); // Toca sincronizado ao frame 16
     sleep_ms(500);
-    desenha_fig(tecla1_f17, 100, pio, sm);
+    desenha_fig(tecla1_f17, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(tecla1_f18, 100, pio, sm);
+    desenha_fig(tecla1_f18, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(tecla1_f19, 100, pio, sm);
+    desenha_fig(tecla1_f19, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(tecla1_f20, 100, pio, sm);
+    desenha_fig(tecla1_f20, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(tecla1_f21, 100, pio, sm);
+    desenha_fig(tecla1_f21, brilho_padrao, pio, sm);
     buzzer_tocar(800, 50); // Toca sincronizado ao frame 21
     sleep_ms(500);
-    desenha_fig(tecla1_f22, 100, pio, sm);
+    desenha_fig(tecla1_f22, brilho_padrao, pio, sm);
     return;
 }
 
 void figura_2(PIO pio, int sm)
 {
-    desenha_fig(x_f1, 100, pio, sm);
+    desenha_fig(x_f1, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(x_f2, 100, pio, sm);
+    desenha_fig(x_f2, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(x_f3, 100, pio, sm);
+    desenha_fig(x_f3, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(x_f4, 100, pio, sm);
+    desenha_fig(x_f4, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(x_f5, 100, pio, sm);
+    desenha_fig(x_f5, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(x_f6, 100, pio, sm);
+    desenha_fig(x_f6, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(x_f7, 100, pio, sm);
+    desenha_fig(x_f7, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(x_f8, 100, pio, sm);
+    desenha_fig(x_f8, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(x_f9, 100, pio, sm);
+    desenha_fig(x_f9, brilho_padrao, pio, sm);
     sleep_ms(500);
-    desenha_fig(x_f10, 100, pio, sm);
+    desenha_fig(x_f10, brilho_padrao, pio, sm);
     sleep_ms(500);
     return;
 }
@@ -348,17 +350,17 @@ void figura_3(PIO pio, int sm)
 {
     for (uint8_t i = 0; i < 5; i++)
     {
-        desenha_fig(colisao1, 100, pio, sm);
+        desenha_fig(colisao1, brilho_padrao, pio, sm);
         sleep_ms(250);
-        desenha_fig(colisao2, 100, pio, sm);
+        desenha_fig(colisao2, brilho_padrao, pio, sm);
         sleep_ms(250);
-        desenha_fig(colisao3, 100, pio, sm);
+        desenha_fig(colisao3, brilho_padrao, pio, sm);
         sleep_ms(500);
-        desenha_fig(colisao4, 100, pio, sm);
+        desenha_fig(colisao4, brilho_padrao, pio, sm);
         sleep_ms(1000);
-        desenha_fig(colisao5, 100, pio, sm);
+        desenha_fig(colisao5, brilho_padrao, pio, sm);
         sleep_ms(1000);
-        desenha_fig(colisao6, 100, pio, sm);
+        desenha_fig(colisao6, brilho_padrao, pio, sm);
     }
     return;
 }
@@ -367,15 +369,15 @@ void figura_4(PIO pio, int sm)
 {
     for (uint8_t i = 0; i < 5; i++)
     {
-        desenha_fig(pong1, 100, pio, sm);
+        desenha_fig(pong1, brilho_padrao, pio, sm);
         sleep_ms(500);
-        desenha_fig(pong2, 100, pio, sm);
+        desenha_fig(pong2, brilho_padrao, pio, sm);
         sleep_ms(500);
-        desenha_fig(pong3, 100, pio, sm);
+        desenha_fig(pong3, brilho_padrao, pio, sm);
         sleep_ms(500);
-        desenha_fig(pong4, 100, pio, sm);
+        desenha_fig(pong4, brilho_padrao, pio, sm);
         sleep_ms(500);
-        desenha_fig(pong5, 100, pio, sm);
+        desenha_fig(pong5, brilho_padrao, pio, sm);
     }
     return;
 }
@@ -385,15 +387,15 @@ void figura_5(PIO pio, int sm)
     for (uint8_t i = 0; i < 5; i++)
     {
         // animação de ondas
-        desenha_fig(onda1, 100, pio, sm);
+        desenha_fig(onda1, brilho_padrao, pio, sm);
         sleep_ms(500);
-        desenha_fig(onda2, 100, pio, sm);
+        desenha_fig(onda2, brilho_padrao, pio, sm);
         sleep_ms(500);
-        desenha_fig(onda3, 100, pio, sm);
+        desenha_fig(onda3, brilho_padrao, pio, sm);
         sleep_ms(500);
-        desenha_fig(onda4, 100, pio, sm);
+        desenha_fig(onda4, brilho_padrao, pio, sm);
         sleep_ms(500);
-        desenha_fig(onda5, 100, pio, sm);
+        desenha_fig(onda5, brilho_padrao, pio, sm);
         sleep_ms(500);
     }
     return;

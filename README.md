@@ -1,6 +1,6 @@
 # Atividade - Microcontroladores – GPIO - Parte 2
 
-Atividade realizada com auxílio do simulador de eletrônica Wokwi para controlar pinos GPIO com o emprego de um teclado matricial 4x4. Com base nas teclas pressionadas, há o acionamento de uma matriz de LEDs (LED-RGB 5x5 WS2812) e o controle sonoro de um buzzer.
+Atividade realizada com auxílio do simulador de eletrônica Wokwi para controlar pinos GPIO com o emprego de um teclado matricial 4x4. Com base nas teclas pressionadas, há o acionamento de uma matriz de LEDs (LED-RGB 5x5 WS2812) e o controle sonoro de um buzzer. É possível também utilizar o teclado do computador via comunicação serial para executar as funções.
 
 A simulação no Wokwi conta com:
 
@@ -30,10 +30,20 @@ Cada uma das 16 teclas do teclado matricial 4x4 possui uma funcionalidade:
 - Tecla C: Liga a cor vermelha em todos os LEDs da matriz (80% de luminosidade);
 - Tecla D: Liga a cor verde em todos os LEDs da matriz (50% de luminosidade).
 
-## Demonstração
+Para utilizar o programa com o simulador Wokwi, o usuário deve:
 
-<!-- TODO: adicionar link da simulação -->
-Simulação na plataforma Wokwi: [Matriz 5x5](#).
+- Clonar este repositório: git clone https://github.com/saturnino028/U4C2O1234A---Matriz-de-LEDs.git;
+- Usando a extensão Raspberry Pi Pico importar o projeto;
+- Compilar o código e clicar no arquivo diagram.json.
+
+Para utilizar o programa com o kit de desenvolvimento BitDogLab, o usuário deve:
+
+- Clonar este repositório: git clone https://github.com/saturnino028/U4C2O1234A---Matriz-de-LEDs.git;
+- Usando a extensão Raspberry Pi Pico importar o projeto;
+- Compilar o projeto;
+- Plugar a BitDogLab usando um cabo apropriado e gravar o código.
+
+## Demonstração
 
 <!-- TODO: adicionar link do vídeo -->
 Vídeo demonstrando as funcionalidades da solução implementada: [Vídeo Demonstrativo](#).

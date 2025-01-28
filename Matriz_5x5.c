@@ -19,7 +19,7 @@ int main()
     int sm = pio_claim_unused_sm(pio, true);
     Matriz_5x5_program_init(pio, sm, offset, matriz_pin);
 
-    desenha_fig(open, 100, pio, sm);
+    desenha_fig(open, 20, pio, sm);
 
     while(true)
     {
@@ -49,31 +49,31 @@ int main()
                 figura_1(pio, sm);
 
                 sleep_ms(1000);
-                desenha_fig(open, 100, pio, sm);
+                desenha_fig(open, 20, pio, sm);
                 break;
             case '2':
                 figura_2(pio, sm);
 
                 sleep_ms(1000);
-                desenha_fig(open, 100, pio, sm);
+                desenha_fig(open, 20, pio, sm);
                 break;
             case '3':
                 figura_3(pio, sm);
 
                 sleep_ms(1000);
-                desenha_fig(open, 100, pio, sm);
+                desenha_fig(open, 20, pio, sm);
                 break;
             case '4':
                 figura_4(pio, sm);
 
                 sleep_ms(1000);
-                desenha_fig(open, 100, pio, sm);
+                desenha_fig(open, 20, pio, sm);
                 break;
             case '5':
                 figura_5(pio, sm);
 
                 sleep_ms(1000);                  
-                desenha_fig(open, 100, pio, sm);
+                desenha_fig(open, 20, pio, sm);
                 break;
             case '6':
                 break;
@@ -187,17 +187,14 @@ char ler_teclado(){
     05, 04, 03, 02, 01  
  */
 void desenha_fig(uint32_t *_matriz, uint8_t _intensidade, PIO pio, uint sm){
-    uint32_t pixel = 0, matriz[25]; uint8_t r, g, b;
-    for(int i = 0; i<25;i++){
-        matriz[i] = _matriz[i]*(_intensidade/100.00);
-    }
+    uint32_t pixel = 0; uint8_t r, g, b;
 
     for(int i = 24; i>19; i--) //Linha 1
     {
-        pixel = matriz[i];
-        b = (pixel >> 16) & 0xFF; // Isola os 8 bits mais significativos (azul)
-        g = (pixel >> 8) & 0xFF;  // Isola os 8 bits intermediários (verde)
-        r = pixel & 0xFF;         // Isola os 8 bits menos significativos (vermelho)
+        pixel = _matriz[i];
+        b = ((pixel >> 16) & 0xFF)*(_intensidade/100.00); // Isola os 8 bits mais significativos (azul)
+        g = ((pixel >> 8) & 0xFF)*(_intensidade/100.00);  // Isola os 8 bits intermediários (verde)
+        r = (pixel & 0xFF)*(_intensidade/100.00);         // Isola os 8 bits menos significativos (vermelho)
         pixel = 0;
         pixel = (g << 16) | (r << 8) | b;
         pio_sm_put_blocking(pio, sm, pixel<<8u);
@@ -205,10 +202,10 @@ void desenha_fig(uint32_t *_matriz, uint8_t _intensidade, PIO pio, uint sm){
 
     for(int i = 15; i<20; i++) //Linha 2
     {
-        pixel = matriz[i];
-        b = (pixel >> 16) & 0xFF; // Isola os 8 bits mais significativos (azul)
-        g = (pixel >> 8) & 0xFF;  // Isola os 8 bits intermediários (verde)
-        r = pixel & 0xFF;         // Isola os 8 bits menos significativos (vermelho)
+        pixel = _matriz[i];
+        b = ((pixel >> 16) & 0xFF)*(_intensidade/100.00); // Isola os 8 bits mais significativos (azul)
+        g = ((pixel >> 8) & 0xFF)*(_intensidade/100.00);  // Isola os 8 bits intermediários (verde)
+        r = (pixel & 0xFF)*(_intensidade/100.00);         // Isola os 8 bits menos significativos (vermelho)
         pixel = 0;
         pixel = (b << 16) | (r << 8) | g;
         pixel = (g << 16) | (r << 8) | b;
@@ -218,10 +215,10 @@ void desenha_fig(uint32_t *_matriz, uint8_t _intensidade, PIO pio, uint sm){
 
     for(int i = 14; i>9; i--) //Linha 3
     {
-        pixel = matriz[i];
-        b = (pixel >> 16) & 0xFF; // Isola os 8 bits mais significativos (azul)
-        g = (pixel >> 8) & 0xFF;  // Isola os 8 bits intermediários (verde)
-        r = pixel & 0xFF;         // Isola os 8 bits menos significativos (vermelho)
+        pixel = _matriz[i];
+        b = ((pixel >> 16) & 0xFF)*(_intensidade/100.00); // Isola os 8 bits mais significativos (azul)
+        g = ((pixel >> 8) & 0xFF)*(_intensidade/100.00);  // Isola os 8 bits intermediários (verde)
+        r = (pixel & 0xFF)*(_intensidade/100.00);         // Isola os 8 bits menos significativos (vermelho)
         pixel = 0;
         pixel = (g << 16) | (r << 8) | b;
         pio_sm_put_blocking(pio, sm, pixel<<8u);
@@ -229,10 +226,10 @@ void desenha_fig(uint32_t *_matriz, uint8_t _intensidade, PIO pio, uint sm){
 
     for(int i = 5; i<10; i++) //Linha 4
     {
-        pixel = matriz[i];
-        b = (pixel >> 16) & 0xFF; // Isola os 8 bits mais significativos (azul)
-        g = (pixel >> 8) & 0xFF;  // Isola os 8 bits intermediários (verde)
-        r = pixel & 0xFF;         // Isola os 8 bits menos significativos (vermelho)
+        pixel = _matriz[i];
+        b = ((pixel >> 16) & 0xFF)*(_intensidade/100.00); // Isola os 8 bits mais significativos (azul)
+        g = ((pixel >> 8) & 0xFF)*(_intensidade/100.00);  // Isola os 8 bits intermediários (verde)
+        r = (pixel & 0xFF)*(_intensidade/100.00);         // Isola os 8 bits menos significativos (vermelho)
         pixel = 0;
         pixel = (g << 16) | (r << 8) | b;
         pio_sm_put_blocking(pio, sm, pixel<<8u);
@@ -240,10 +237,10 @@ void desenha_fig(uint32_t *_matriz, uint8_t _intensidade, PIO pio, uint sm){
 
     for(int i = 4; i > -1 ; i--) //Linha 5
     {
-        pixel = matriz[i];
-        b = (pixel >> 16) & 0xFF; // Isola os 8 bits mais significativos (azul)
-        g = (pixel >> 8) & 0xFF;  // Isola os 8 bits intermediários (verde)
-        r = pixel & 0xFF;         // Isola os 8 bits menos significativos (vermelho)
+        pixel = _matriz[i];
+        b = ((pixel >> 16) & 0xFF)*(_intensidade/100.00); // Isola os 8 bits mais significativos (azul)
+        g = ((pixel >> 8) & 0xFF)*(_intensidade/100.00);  // Isola os 8 bits intermediários (verde)
+        r = (pixel & 0xFF)*(_intensidade/100.00);         // Isola os 8 bits menos significativos (vermelho)
         pixel = 0;
         pixel = (g << 16) | (r << 8) | b;
         pio_sm_put_blocking(pio, sm, pixel<<8u);

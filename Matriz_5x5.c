@@ -92,16 +92,16 @@ int main()
                 desenha_fig(matriz_azul, 100, pio, sm);
                 break;
             case 'C':
-                desenha_fig(red, 80, pio, sm);
+                desenha_fig(matriz_vermelha, 80, pio, sm);
                 break;
             case 'D':
-                desenha_fig(white, 50, pio, sm);
+                desenha_fig(matriz_verde, 50, pio, sm);
                 break;
             case '*':
                 entrar_modo_gravacao();
                 break;
             case '#':
-                desenha_fig(white, 20, pio, sm);
+                desenha_fig(matriz_branca, 20, pio, sm);
                 break;
             default:
                 break;

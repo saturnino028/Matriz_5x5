@@ -43,6 +43,10 @@ Para utilizar o programa com o kit de desenvolvimento BitDogLab, o usuário deve
 - Compilar o projeto;
 - Plugar a BitDogLab usando um cabo apropriado e gravar o código.
 
+## Atenção
+
+O brilho dos LEDs é muito intenso, para evitar danos aos olhos recomendamos que o brilho_padrao seja ajustado para 10% quando estiver usando o kit BitDogLab.
+
 ## Demonstração
 
 <!-- TODO: adicionar link do vídeo -->
